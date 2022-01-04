@@ -8,7 +8,16 @@ import photoJam from '../assets/photojam.jpg'
 const Login = () => {
 
   const responseGoogle = (response) => {
-    
+    localStorage.setItem('user', JSON.stringify(response.profileObj));
+
+    const { name, googleId, imageUrl } = response.profileObj;
+
+    const doc = {
+      _id: googleId,
+      _type: 'user',
+      userName: name,
+      image: imageUrl
+    }
   }
 
   return (
@@ -23,7 +32,7 @@ const Login = () => {
           <div className='p-5 text-white text-3xl tracking-widest'>PhotoJam</div>
           <div className='shadow-2xl'>
             <GoogleLogin
-              clientId=''
+              clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
               render={(renderProps) => (
                 <button
                   type='button'

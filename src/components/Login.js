@@ -7,7 +7,7 @@ import photoJam from '../assets/photojam.jpg'
 
 const Login = () => {
 
-  const repsponseGoogle = (response) => {
+  const responseGoogle = (response) => {
     
   }
 
